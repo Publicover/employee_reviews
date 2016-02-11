@@ -10,7 +10,7 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_can_create_employee
-    a = Employee.new("Guy Duderson")
+    a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
     assert_equal "Guy Duderson", a.name
   end
 
