@@ -14,7 +14,10 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal "Guy Duderson", a.name
   end
 
-
+  def test_can_add_empolyee_to_department
+    a = Department.new("Guy Duderson")
+    assert_equal "Guy Duderson", a.staff
+  end
 
 
 
