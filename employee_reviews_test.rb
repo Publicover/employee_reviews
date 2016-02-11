@@ -24,6 +24,11 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal ["Guy", "Bert", "Ernie"], a.staff
   end
 
+  def test_can_get_employee_name
+    a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    assert_equal "Guy Duderson", a.name
+  end
+
 
 
 end
