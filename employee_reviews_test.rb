@@ -67,6 +67,13 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal a.add_review(review), "We're not paying Jim enough. He is a gift to his entire generation."
   end
 
+  def test_employee_performance_is_satisfactory
+    a = Employee.new("Jim", "code4Urface@business.com", "300",
+                      120_000)
+    a.satisfactory?(true)
+    assert a.satisfactory_performance
+  end
+
   # def test_employee_performance_is_satisfactory
   #   puts "hopefully"
   # end

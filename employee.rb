@@ -1,8 +1,8 @@
 class Employee
   attr_accessor :name, :email, :phone_number, :salary, :review,
                 :satisfactory_performance
-  def initialize(name, email, phone_number, salary, review = nil,
-                 satisfactory_performance = nil)
+  def initialize(name, email, phone_number, salary)
+
     @name = name
     @email = email
     @phone_number = phone_number
@@ -14,6 +14,9 @@ class Employee
     @review = review
   end
 
+  def satisfactory?(truefalse)
+    @satisfactory_performance = truefalse
+  end
 
 
 
