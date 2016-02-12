@@ -19,7 +19,7 @@ class Employee
   end
 
   def give_indv_raise(total_raise)
-    @salary += total_raise
+      @salary += total_raise
   end
 
 

@@ -13,10 +13,22 @@ class Department
   end
 
   def give_raise(total_raise)
-    increase_per = total_raise / @staff.length
-    @staff.each do |employee|
+    performance_array = []
+
+    @staff.each do |good_employee|
+      if good_employee.satisfactory_performance
+        performance_array << good_employee
+      end
+    end
+
+    increase_per = total_raise / performance_array.length
+
+    performance_array.each do |employee|
       employee.salary += increase_per
     end
+
+
+
   end
 
   # def make_new_department(dept_name: nil)

@@ -32,7 +32,7 @@ class EmployeeReviewsTest < Minitest::Test
     b = Employee.new(name: "Guy Fierie", email: "human_cheese_fry@food.com",
                      phone_number: "555-654-6543", salary: 25_000)
     a.new_staff(b)
-    c = Employee.new(name: "Yoma Ma", email: "dabomb.com",
+    c = Employee.new(name: "Yoma Ma", email: "yomama@dabomb.com",
                      phone_number: "123-456-0101", salary: 30_000)
     a.new_staff(c)
     assert_equal "Guy Fierie", a.staff[0].name
@@ -57,7 +57,7 @@ class EmployeeReviewsTest < Minitest::Test
     b = Employee.new(name: "Guy Fierie", email: "human_cheese_fry@food.com",
                      phone_number: "555-654-6543", salary: 25_000)
     a.new_staff(b)
-    c = Employee.new(name: "Yoma Ma", email: "dabomb.com",
+    c = Employee.new(name: "Yoma Ma", email: "yomama@dabomb.com",
                      phone_number: "123-456-0101", salary: 30_000)
     a.new_staff(c)
     assert_equal 55_000, a.staff[0].salary + a.staff[1].salary
@@ -83,10 +83,9 @@ class EmployeeReviewsTest < Minitest::Test
     b = Employee.new(name: "Jim", email: "code4Urface@business.com",
                      phone_number: "300",salary: 120_000)
     a.new_staff(b)
-    a.give_raise(50_000)
-    assert_equal b.salary, 170_000
+    b.satisfactory?(true)
     b.give_indv_raise(50_000)
-    assert_equal b.salary, 220_000
+    assert_equal b.salary, 170_000
   end
 
   def test_entire_department_can_take_a_raise
@@ -94,11 +93,13 @@ class EmployeeReviewsTest < Minitest::Test
     b = Employee.new(name: "Guy Fierie", email: "human_cheese_fry@food.com",
                      phone_number: "555-654-6543", salary: 25_000)
     a.new_staff(b)
-    c = Employee.new(name: "Yoma Ma", email: "dabomb.com",
+    c = Employee.new(name: "Yoma Ma", email: "yomama@dabomb.com",
                      phone_number: "123-456-0101", salary: 30_000)
     a.new_staff(c)
+    b.satisfactory?(true)
+    c.satisfactory?(true)
     a.give_raise(50_000)
-    assert_equal b.salary + c.salary, 105_000
+    assert_equal 105_000, b.salary + c.salary
   end
 
   # def test_keyword_arguments
