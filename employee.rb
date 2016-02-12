@@ -1,7 +1,7 @@
 class Employee
   attr_accessor :name, :email, :phone_number, :salary, :review,
                 :satisfactory_performance
-  def initialize(name, email, phone_number, salary)
+  def initialize(name: nil, email: nil, phone_number: nil, salary: nil)
 
     @name = name
     @email = email
@@ -16,6 +16,10 @@ class Employee
 
   def satisfactory?(truefalse)
     @satisfactory_performance = truefalse
+  end
+
+  def give_indv_raise(total_raise)
+    @salary += total_raise
   end
 
 
