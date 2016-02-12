@@ -81,6 +81,16 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal a.salary, 170_000
   end
 
+  def test_entire_department_can_take_a_raise
+    a = Department.new("Finance")
+    b = Employee.new("Guy Fierie", "human_cheese_fry@food.com", "555-654-6543", 25_000)
+    a.new_staff(b)
+    c = Employee.new("Yoma Ma", "dabomb.com", "123-456-0101", 30_000)
+    a.new_staff(c)
+    a.give_raise(50_000)
+    assert_equal b.salary + c.salary, 105_000
+  end
+
   # def test_employee_performance_is_satisfactory
   #   puts "hopefully"
   # end
