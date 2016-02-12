@@ -102,24 +102,4 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal 105_000, b.salary + c.salary
   end
 
-  # def test_keyword_arguments
-  #
-  #   a = make_new_department(dept_name: "RD")
-  #   assert_equal a.dept_name, "RD"
-  # end
-
-  # def test_employee_performance_is_satisfactory
-  #   puts "hopefully"
-  # end
-
-
-
 end
-
-
-# def test_can_create_album_and_get_its_attributes
-#   a = Album.new("Daniel B.", 200, 15)
-#   assert_equal "Daniel B.", a.name
-#   assert_equal 200, a.number
-#   assert_equal 15, a.price
-# end
