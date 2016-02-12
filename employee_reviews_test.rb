@@ -24,27 +24,36 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal "Kate", a.staff[1].name
   end
 
-#change names and info below
   def test_can_add_whole_buncha_employees_to_department
     a = Department.new("Finance")
-    b = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    b = Employee.new("Guy Fierie", "human_cheese_fry@food.com", "555-654-6543", 25_000)
     a.new_staff(b)
-    c = Employee.new("Kate", "dev@dev.com", "45", 100_000)
+    c = Employee.new("Yoma Ma", "dabomb.com", "123-456-0101", 30_000)
     a.new_staff(c)
-    assert_equal "Guy Duderson", a.staff[0].name
-    assert_equal "Kate", a.staff[1].name
+    assert_equal "Guy Fierie", a.staff[0].name
+    assert_equal "Yoma Ma", a.staff[1].name
   end
 
   def test_can_get_employee_name
     a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
     assert_equal "Guy Duderson", a.name
+    refute_equal "Jim", a.name
   end
 
   def test_can_get_department_name
     a = Department.new("Funk")
     assert_equal "Funk", a.dept_name
+    refute_equal "of Redundancy Department", a.dept_name
   end
 
+  def test_can_get_all_salaries_in_dept
+    a = Department.new("Finance")
+    b = Employee.new("Guy Fierie", "human_cheese_fry@food.com", "555-654-6543", 25_000)
+    a.new_staff(b)
+    c = Employee.new("Yoma Ma", "dabomb.com", "123-456-0101", 30_000)
+    a.new_staff(c)
+    assert_equal 55_000, a.staff[0].salary + a.staff[1].salary
+  end
 
 
 
