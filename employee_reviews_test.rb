@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './department'
-require './employee'
+require './department.rb'
+require './employee.rb'
 
 class EmployeeReviewsTest < Minitest::Test
   def test_classes_exist
@@ -15,19 +15,36 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_can_add_empolyee_to_department
-    a = Department.new("Guy Duderson")
-    assert_equal "Guy Duderson", a.staff
+    a = Department.new("Finance")
+    b = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    a.new_staff(b)
+    c = Employee.new("Kate", "dev@dev.com", "45", 100_000)
+    a.new_staff(c)
+    assert_equal "Guy Duderson", a.staff[0].name
+    assert_equal "Kate", a.staff[1].name
   end
 
+#change names and info below
   def test_can_add_whole_buncha_employees_to_department
-    a = Department.new(["Guy", "Bert", "Ernie"])
-    assert_equal ["Guy", "Bert", "Ernie"], a.staff
+    a = Department.new("Finance")
+    b = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    a.new_staff(b)
+    c = Employee.new("Kate", "dev@dev.com", "45", 100_000)
+    a.new_staff(c)
+    assert_equal "Guy Duderson", a.staff[0].name
+    assert_equal "Kate", a.staff[1].name
   end
 
   def test_can_get_employee_name
     a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
     assert_equal "Guy Duderson", a.name
   end
+
+  def test_can_get_department_name
+    a = Department.new("Funk")
+    assert_equal "Funk", a.dept_name
+  end
+
 
 
 
