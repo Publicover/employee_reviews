@@ -74,6 +74,13 @@ class EmployeeReviewsTest < Minitest::Test
     assert a.satisfactory_performance
   end
 
+  def test_individual_can_get_raise
+    a = Employee.new("Jim", "code4Urface@business.com", "300",
+                      120_000)
+    a.salary += 50_000
+    assert_equal a.salary, 170_000
+  end
+
   # def test_employee_performance_is_satisfactory
   #   puts "hopefully"
   # end
