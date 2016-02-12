@@ -55,6 +55,10 @@ class EmployeeReviewsTest < Minitest::Test
     assert_equal 55_000, a.staff[0].salary + a.staff[1].salary
   end
 
+  def test_employee_can_take_review_text
+    a = Employee.new("Jim", "code4Urface@business.com", "300", 120_000, "We're not paying Jim enough. He is a gift to his entire generation.")
+    assert_equal "We're not paying Jim enough. He is a gift to his entire generation.", a.review
+  end
 
 
 end
