@@ -10,13 +10,15 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_can_create_employee
-    a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    a = Employee.new("Guy Duderson", "the_dude@duderson.com",
+                     "555-555-6543", 25_000)
     assert_equal "Guy Duderson", a.name
   end
 
   def test_can_add_empolyee_to_department
     a = Department.new("Finance")
-    b = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    b = Employee.new("Guy Duderson", "the_dude@duderson.com",
+                     "555-555-6543", 25_000)
     a.new_staff(b)
     c = Employee.new("Kate", "dev@dev.com", "45", 100_000)
     a.new_staff(c)
@@ -26,7 +28,8 @@ class EmployeeReviewsTest < Minitest::Test
 
   def test_can_add_whole_buncha_employees_to_department
     a = Department.new("Finance")
-    b = Employee.new("Guy Fierie", "human_cheese_fry@food.com", "555-654-6543", 25_000)
+    b = Employee.new("Guy Fierie", "human_cheese_fry@food.com",
+                     "555-654-6543", 25_000)
     a.new_staff(b)
     c = Employee.new("Yoma Ma", "dabomb.com", "123-456-0101", 30_000)
     a.new_staff(c)
@@ -35,7 +38,8 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_can_get_employee_name
-    a = Employee.new("Guy Duderson", "the_dude@duderson.com", "555-555-6543", 25_000)
+    a = Employee.new("Guy Duderson", "the_dude@duderson.com",
+                     "555-555-6543", 25_000)
     assert_equal "Guy Duderson", a.name
     refute_equal "Jim", a.name
   end
@@ -56,9 +60,17 @@ class EmployeeReviewsTest < Minitest::Test
   end
 
   def test_employee_can_take_review_text
-    a = Employee.new("Jim", "code4Urface@business.com", "300", 120_000, "We're not paying Jim enough. He is a gift to his entire generation.")
-    assert_equal "We're not paying Jim enough. He is a gift to his entire generation.", a.review
+    a = Employee.new("Jim", "code4Urface@business.com", "300",
+                      120_000)
+    review = "We're not paying Jim enough. He is a gift to his entire generation."
+    assert a.add_review(review)
+    assert_equal a.add_review(review), "We're not paying Jim enough. He is a gift to his entire generation."
   end
+
+  # def test_employee_performance_is_satisfactory
+  #   puts "hopefully"
+  # end
+
 
 
 end
