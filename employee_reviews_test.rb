@@ -98,8 +98,19 @@ class EmployeeReviewsTest < Minitest::Test
     a.new_staff(c)
     b.satisfactory?(true)
     c.satisfactory?(true)
-    a.give_raise(50_000)
+    a.give_raise(50_000) {|i| performance_array << i if i.satisfactory_performance == true}
     assert_equal 105_000, b.salary + c.salary
+  end
+
+  def test_dept_give_raise_method_can_take_yield
+    a = Department.new(dept_name: "Finance")
+    b = Employee.new(name: "Jim", email: "code4Urface@business.com",
+                     phone_number: "300",salary: 120_000)
+    a.new_staff(b)
+    c = Employee.new(name: "Yoma Ma", email: "yomama@dabomb.com",
+                     phone_number: "123-456-0101", salary: 30_000)
+    a.new_staff(c)
+    
   end
 
 end

@@ -12,6 +12,8 @@ class Department
     @staff << employee
   end
 
+
+
   def give_raise(total_raise)
     performance_array = []
 
@@ -27,4 +29,20 @@ class Department
       employee.salary += increase_per
     end
   end
+
+
+  def give_raise_w_yield(total_raise)
+    @staff.each do |good_employee|
+      if good_employee.salary < 100_000
+        good_employee.salary += total_raise / @staff.length
+      end
+    end
+  end
+
+#   department.give_raises(5000) do |employee|
+#     employee.salary < 100000
+#   end
+
+
+
 end
