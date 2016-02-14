@@ -98,7 +98,7 @@ class EmployeeReviewsTest < Minitest::Test
     a.new_staff(c)
     b.satisfactory?(true)
     c.satisfactory?(true)
-    a.give_raise(50_000) {|i| performance_array << i if i.satisfactory_performance == true}
+    a.give_raise(50_000) {|employee| employee.satisfactory_performance == true}
     assert_equal 105_000, b.salary + c.salary
   end
 
@@ -110,7 +110,9 @@ class EmployeeReviewsTest < Minitest::Test
     c = Employee.new(name: "Yoma Ma", email: "yomama@dabomb.com",
                      phone_number: "123-456-0101", salary: 30_000)
     a.new_staff(c)
-    
+    a.give_raise(50_000) {|employee| employee.salary < 100_000}
+    assert_equal 200_000, b.salary + c.salary
+
   end
 
 end
