@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './department.rb'
 require './employee.rb'
+require './sample_reviews.txt'
 
 class EmployeeReviewsTest < Minitest::Test
   def test_classes_exist
@@ -112,7 +113,14 @@ class EmployeeReviewsTest < Minitest::Test
     a.new_staff(c)
     a.give_raise(50_000) {|employee| employee.salary < 100_000}
     assert_equal 200_000, b.salary + c.salary
+  end
 
+  def test_regex_review_scores
+    b = Employee.new(name: "Jim", email: "code4Urface@business.com",
+                     phone_number: "300",salary: 120_000)
+    b.add_review("Jim is an amazing employee. He works hard, is knowledgeable, and does his job well.")
+    b.read_review_add_to_employee("Jim is an amazing employee. He works hard, is knowledgeable, and does his job well.")
+    assert_equal 5, b.review_score
   end
 
 end

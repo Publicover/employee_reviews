@@ -1,6 +1,6 @@
 class Employee
   attr_accessor :name, :email, :phone_number, :salary, :review,
-                :satisfactory_performance
+                :satisfactory_performance, :review_score
   def initialize(name: nil, email: nil, phone_number: nil, salary: nil)
 
     @name = name
@@ -22,10 +22,23 @@ class Employee
       @salary += total_raise
   end
 
+  def read_review_add_to_employee(string)
+    value_score = 0
+    value_score += 1 if string.scan(/good/i)
+    value_score += 1 if string.scan(/amazing/i)
+    value_score += 1 if string.scan(/well/i)
+    value_score += 1 if string.scan(/hard/i)
+    value_score += 1 if string.scan(/knowledgeable/i)
+    @review_score = value_score
+  end
+
 
 
 
 end
+
+
+
 
 
 # def make_a_contact(first_name: nil, last_name: nil , company_name: nil)

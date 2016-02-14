@@ -107,27 +107,30 @@
 #
 # yield_test6 do
 #   yield_test6_b(5, 3)
+# # end
+#
+# def yield_test7(total_number)
+#   puts total_number / yield
 # end
-
-def yield_test7(total_number)
-  puts total_number / yield
-end
-
-def yield_test7_b(a, b)
-  a + b
-end
-
-yield_test7(100) do
-  yield_test7_b(25, 25)
-end
-
-# yield_test4(400, 100) do |x, y|
-#   return x > y && x > 20
+#
+# def yield_test7_b(a, b)
+#   a + b
 # end
-
-# yield_test5(100, 10, array) do |a, b, c|
-#   c = []
-#   if a > b
-#     c << a
-#   end
+#
+# yield_test7(100) do
+#   yield_test7_b(25, 25)
 # end
+#
+# # yield_test4(400, 100) do |x, y|
+# #   return x > y && x > 20
+# # end
+#
+# # yield_test5(100, 10, array) do |a, b, c|
+# #   c = []
+# #   if a > b
+# #     c << a
+# #   end
+# # end
+
+puts "whatever you got my got my on what?".scan(/got/i)
+puts "whatever you got my got my on what?".scan(/my/i)
