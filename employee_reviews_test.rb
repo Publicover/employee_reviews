@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './department.rb'
 require './employee.rb'
-require './sample_reviews.txt'
+
 
 class EmployeeReviewsTest < Minitest::Test
   def test_classes_exist
